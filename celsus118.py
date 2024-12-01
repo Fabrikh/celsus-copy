@@ -14,7 +14,14 @@ import time
 import numpy as np
 from datetime import datetime, timedelta
 import json
+from streamlit_webrtc import webrtc_streamer, WebRtcMode
 
+webrtc_streamer(
+    key="example",
+    mode=WebRtcMode.SENDRECV,
+    audio_receiver_size=256,
+    media_stream_constraints={"audio": True, "video": False},
+)
 
 load_dotenv(".env.example")
 fseFilePath = "FSECrop.json"
