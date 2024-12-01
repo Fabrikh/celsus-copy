@@ -87,6 +87,8 @@ def record_and_transcribe():
 	global stream_bool
 	rand_number = random.randint(0, 1023)
 	audio = pyaudio.PyAudio()
+	for i in range(p.get_device_count()):
+		print(p.get_device_info_by_index(i))
 	stream = audio.open(format=FORMAT, channels=CHANNELS,
 						rate=RATE, input=True,
 						frames_per_buffer=CHUNK)
